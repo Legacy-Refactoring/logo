@@ -1,0 +1,74 @@
+to register_customer :username :email :password :full_name [:phone ""] [:country "RS"] [:city ""] [:address ""]
+end
+
+to login_customer :username :password
+end
+
+to get_customer :customer_id
+end
+
+to update_customer_profile :customer_id :new_email :new_phone :new_address
+end
+
+to reset_password :email :new_password
+end
+
+to verify_email :token
+end
+
+to add_payment_method :customer_id :type :card_number :expiry_month :expiry_year :cvv :holder_name [:iban ""]
+end
+
+to list_payment_methods :customer_id
+end
+
+to delete_payment_method :pm_id
+end
+
+to process_payment :customer_id :payment_method_id :amount [:currency "EUR"] [:external_order_id ""] [:ip ""]
+end
+
+to list_payments :customer_id
+end
+
+to get_payment_details :payment_id
+end
+
+to create_refund :payment_id :amount [:reason "customer request"]
+end
+
+to process_refund :refund_id
+end
+
+to simulate_chargeback :payment_id :amount [:reason "fraud"]
+end
+
+to resolve_chargeback :chargeback_id [:won "true"]
+end
+
+to create_fraud_review :payment_id :customer_id [:score "85"]
+end
+
+to decide_fraud_review :review_id :decision :reviewer_email :reviewer_password
+end
+
+to admin_list_all_customers
+end
+
+to admin_export_all_data
+end
+
+to search_payments :search_term
+end
+
+to process_recurring_billing
+end
+
+to handle_webhook :payload
+end
+
+to ban_customer :customer_id
+end
+
+to generate_api_key :customer_id
+end
