@@ -13,7 +13,14 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
       - ./seeder.sql:/docker-entrypoint-initdb.d/02-seeder.sql:ro
 
-  lang:
+  logo:
+    image: ubuntu:24.04
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: bash -c "apt-get update -qq && apt-get install -y ucblogo && ucblogo legacy.logo"
+    depends_on:
+      - db
 
 volumes:
   postgres_data:
